@@ -2,14 +2,11 @@ postgresql:
   auth:
     postgresPassword: "Srt2022@"
     database: postgres
-  
   global:
     security:
       allowInsecureImages: true
-
   image:
     repository: bitnamilegacy/postgresql
-
   primary:
     extendedConfiguration: |-
       shared_preload_libraries = 'pg_stat_statements'
@@ -20,8 +17,7 @@ postgresql:
       max_connections = 500
       idle_in_transaction_session_timeout = 60000
       statement_timeout = 30000
-      lock_timeout = 5000
-    
+      lock_timeout = 5000 
     persistence:
       enabled: true
       storageClass: "local-path"
