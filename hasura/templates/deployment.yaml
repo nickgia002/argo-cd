@@ -44,6 +44,13 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- if .Values.envConfigmap}}
+          envFrom:
+            - configMapRef:
+                name: {{ include "mychart.fullname" . }}-config
+            - secretRef:
+                name: argocd-demo-hasure-secret-env
+          {{- end}}
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}

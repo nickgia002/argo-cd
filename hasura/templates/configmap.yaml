@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mychart.fullname" . }}-config
+data:
+{{- if .Values.envConfigmap }}
+{{- range $key, $value := .Values.envConfigmap }}
+  {{ $key }}: {{ $value | quote }}
+{{- end }}
+{{- end }}
