@@ -1,0 +1,69 @@
+replicaCount: 1
+
+image:
+  repository: hasura/graphql-engine
+  pullPolicy: IfNotPresent
+  tag: "v2.46.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  automount: false
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+podSecurityContext: {}
+securityContext: {}
+service:
+  type: ClusterIP
+  port: 8080
+resources: {}
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 90 # Đã tăng
+  timeoutSeconds: 5
+  periodSeconds: 10
+  failureThreshold: 3
+readinessProbe:
+  initialDelaySeconds: 90 # Đã tăng
+  timeoutSeconds: 5
+  periodSeconds: 10
+  failureThreshold: 3
+  httpGet:
+    path: /healthz
+    port: 8080
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+volumes: []
+volumeMounts: []
+nodeSelector: {}
+tolerations:
+- key: "node-type.oxiitek.com/worker"
+  operator: "Equal"
+  value: ""
+  effect: "NoSchedule"
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: "node-type.oxiitek.com/worker"
+          operator: Exists
+spec:
+  envFrom:
+    - configMapRef:
+        name: oxii-hasura-subcription-configmap-env
+    - secretRef:
+        name: oxii-hasura-subcription-secret-env
