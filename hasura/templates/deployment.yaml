@@ -47,7 +47,7 @@ spec:
           {{- if .Values.envConfigmap}}
           envFrom:
             - configMapRef:
-                name: {{ include "mychart.fullname" . }}-config
+                name: {{ include "oxii-hasura-subcription.fullname" . }}-config
             - secretRef:
                 name: argocd-demo-hasure-secret-env
           {{- end}}
