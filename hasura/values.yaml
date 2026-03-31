@@ -48,22 +48,4 @@ autoscaling:
 volumes: []
 volumeMounts: []
 nodeSelector: {}
-tolerations:
-- key: "node-type.oxiitek.com/worker"
-  operator: "Equal"
-  value: ""
-  effect: "NoSchedule"
 
-affinity:
-  nodeAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: "node-type.oxiitek.com/worker"
-          operator: Exists
-spec:
-  envFrom:
-    - configMapRef:
-        name: oxii-hasura-subcription-configmap-env
-    - secretRef:
-        name: oxii-hasura-subcription-secret-env
