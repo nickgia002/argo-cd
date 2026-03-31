@@ -48,4 +48,5 @@ autoscaling:
 volumes: []
 volumeMounts: []
 nodeSelector: {}
-
+affinity: {}
+tolerations: []

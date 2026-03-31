@@ -44,10 +44,6 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          {{- with .Values.spec.envFrom}}
-          envFrom:
-            {{- toYaml . | nindent 12}}
-          {{- end}}
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
