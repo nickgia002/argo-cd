@@ -1,23 +1,24 @@
-controller:
-  admin:
-    username: "admin"
-    password: "Srt2022@"
-    createSecret: true
-  installPlugins: false
-  JCasC:
-    defaultConfig: false
-  sidecars:
-    configAutoReload:
-      enabled: false
+jenkins:
+  controller:
+    admin:
+      username: "admin"
+      password: "Srt2022@"
+      createSecret: true
+    installPlugins: false
+    JCasC:
+      defaultConfig: false
+    sidecars:
+      configAutoReload:
+        enabled: false
 
-persistence:
-  storageClass: local-path
-  size: 1Gi
+  persistence:
+    storageClass: local-path
+    size: 1Gi
 
-serviceAccount:
-  create: true
-  name: jenkins
+  serviceAccount:
+    create: true
+    name: jenkins
 
-serviceAccountAgent:
-  create: true
-  name: jenkins-agent
+  serviceAccountAgent:
+    create: true
+    name: jenkins-agent
