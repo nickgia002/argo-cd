@@ -4,9 +4,9 @@ jenkins:
       username: "admin"
       password: "Srt2022@"
       createSecret: true
-    installPlugins: false
+    installPlugins: true
     JCasC:
-      defaultConfig: false
+      defaultConfig: true
     sidecars:
       configAutoReload:
         enabled: false
