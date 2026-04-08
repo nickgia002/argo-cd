@@ -5,3 +5,5 @@ sonarqube:
   elasticsearch:
     bootstrapChecks: false
 
+  monitoringPasscodeSecretName: sonarqube-monitoring-passcode
+  monitoringPasscodeSecretKey: passcode
