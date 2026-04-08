@@ -2,6 +2,6 @@ sonarqube:
   community:
     enabled: true
   
-elasticsearch:
-  bootstrapChecks: false
+  elasticsearch:
+    bootstrapChecks: false
 
