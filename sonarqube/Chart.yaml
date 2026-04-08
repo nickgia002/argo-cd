@@ -1,0 +1,7 @@
+apiVersion: v2
+name: sonarqube-wrapper
+version: 1.0.0
+dependencies:
+  - name: sonarqube
+    version: 8.1.17
+    repository: https://SonarSource.github.io/helm-chart-sonarqube

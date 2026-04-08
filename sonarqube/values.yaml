@@ -1,0 +1,7 @@
+sonarqube:
+  community:
+    enabled: true
+  
+elasticsearch:
+  bootstrapChecks: false
+
