@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    reload.stakater.com/auto: "true"
   name: {{ include "app-demo.fullname" . }}
   labels:
     {{- include "app-demo.labels" . | nindent 4 }}
