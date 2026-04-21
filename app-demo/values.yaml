@@ -163,3 +163,4 @@ affinity: {}
 envFrom:  
   - secretRef:
       name: demo-app-secret
+
