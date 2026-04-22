@@ -1,4 +1,4 @@
-keyverno:
+kyverno:
   crds:
     migration:
       enabled: false
